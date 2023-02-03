@@ -1,4 +1,5 @@
-import createAuth0Client, {
+import {
+  createAuth0Client,
   Auth0Client as Auth0ClientClass,
   Auth0ClientOptions,
   GetTokenSilentlyOptions,
@@ -95,7 +96,6 @@ export function useAuth0() {
 /** Creates an instance of the Auth0 SDK. If one has already been created, it returns that instance */
 export function initAuth0<AppStateType>({
   onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
-  redirectUri = window.location.origin,
   ...options
 }: Auth0InitConfig<AppStateType>) {
   if (_instance) {
@@ -119,8 +119,7 @@ export function initAuth0<AppStateType>({
     // Create a new instance of the SDK client using members of the given options object
     state.auth0Client = await createAuth0Client({
       ...options,
-      client_id: options.client_id,
-      redirect_uri: redirectUri,
+      clientId:options.clientId,
     });
 
     try {
@@ -197,8 +196,8 @@ export function initAuth0<AppStateType>({
   };
 
   /** Returns all the claims present in the ID token */
-  const getIdTokenClaims: Auth0Client['getIdTokenClaims'] = (options) => {
-    return state.auth0Client.getIdTokenClaims(options);
+  const getIdTokenClaims: Auth0Client['getIdTokenClaims'] = () => {
+    return state.auth0Client.getIdTokenClaims();
   };
 
   /** Returns the access token. If the token is invalid or missing, a new one is retrieved */

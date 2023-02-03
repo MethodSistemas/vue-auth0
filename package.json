@@ -1,5 +1,5 @@
 {
-  "name": "@dreamonkey/vue-auth0",
+  "name": "methodsistemas-vue-auth0",
   "version": "0.0.1",
   "description": "@auth0/auth0-spa-js wrapper in the 'Vue way', with full TS support",
   "keywords": [
@@ -36,7 +36,7 @@
     "@vueuse/core": "^7.5.3"
   },
   "devDependencies": {
-    "@auth0/auth0-spa-js": "^1.19.0",
+    "@auth0/auth0-spa-js": "^2.0.2",
     "@babel/types": "^7.16.8",
     "@typescript-eslint/eslint-plugin": "^5.9.1",
     "@typescript-eslint/parser": "^5.9.1",
@@ -49,7 +49,7 @@
     "vue-router": "^4.0.0"
   },
   "peerDependencies": {
-    "@auth0/auth0-spa-js": "^1.19.0",
+    "@auth0/auth0-spa-js": "^2.0.2",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0"
   },
